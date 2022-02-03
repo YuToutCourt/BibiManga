@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+<div class="head">
+    <h4>Nombre de séries : {{mangas | length}}</h4>
+    <div class="subHead"> 
+            <label id="checkBoxCrois">Décroissant</label>
+            <input type="checkbox" id="isCroissant" name="isCroi">
+        <select name="shortBy" id="shorter">
+            <option value=""  disabled selected>--Trier par--</option>
+            <option value="alph">Alphabetique</option>
+            <option value="startData">StartDate</option>
+        </select>
+    </div>
+</div>
+
+    <div class="contenu">
+    {% for manga in mangas| sort((a, b) => a.nom <=> b.nom) %}
+    <article>
+        <h4><u>{{ manga.nom }} </u></h4>
+        <em>
+        {% if manga.endDate is not null %}
+            <div class="date">( {{manga.startDate|format_datetime('short', 'none', locale='fr')}} - {{manga.endDate|format_datetime('short', 'none', locale='fr')}} )</div>
+        {% else %}
+            <div class="date">( {{manga.startDate|format_datetime('short', 'none', locale='fr')}} - En cours )</div>
+        {% endif %}
+        </em>
+
+        <a href="{{path('manga',{'nom': manga.nom, 'id': manga.id }) }}"> <img class="image" width="180" height="250" src="image/{{manga.id}}.jpg"></a>
+        <p id="status">{{ manga.status }}</p>
+
+    </article>
+    {% endfor %}
+    </div>
+{% endblock %}

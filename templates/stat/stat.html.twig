@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Statistique{% endblock %}
+
+{% block body %}
+
+    {% set tableauSerie = [] %}
+    {% set tableauNom = [] %}
+    {% set nbTome = stats|length %}
+    {% set prixTotal = 0 %}
+    {% for tome in stats %}
+        {% if tome.idManga not in tableauSerie %}
+            {% set tableauSerie = tableauSerie|merge([tome.idManga]) %}
+        {% endif %}
+        {% set prixTotal = prixTotal + tome.prix %}
+    {% endfor %}
+    <div class="head">
+        
+        <div id="box">
+        <h3>Nombre de tomes : {{ nbTome }}</h3>
+            {% for tome in stats | sort((a, b) => a.nom <=> b.nom) %}
+                {% if tome.nom not in tableauNom %}
+                    {% set tableauNom = tableauNom|merge([tome.nom]) %}
+                    {% set nbTomeSerie = 0 %}
+                    {% for tomeSerie in stats %}
+                        {% if tomeSerie.idManga == tome.id %}
+                            {% set nbTomeSerie = nbTomeSerie + 1 %}
+                        {% endif %}
+                    {% endfor %}
+                        <p>{{tome.nom}} : <strong>{{nbTomeSerie}}</strong> tomes</p>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <h3></h3>
+        <div id="box">
+        <h3>Prix total de toute la collection : {{ prixTotal }} €</h3>
+            <img src="/image/stonks.png" alt="stonks">
+        </div>
+    </div>
+
+{% endblock %}

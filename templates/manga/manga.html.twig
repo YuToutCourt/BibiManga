@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Manga{% endblock %}
+
+{% block body %}
+
+{% set sumOf = 0 %}
+{% set nbSide = [] %}
+{% for manga in id %}
+    {% if manga.sideStory is null %}
+        {% set sumOf = sumOf + manga.prix %}
+    {% else %}
+        {% if manga.sideStory not in nbSide %}
+            {% set nbSide = nbSide|merge([manga.sideStory]) %}
+        {% endif %}
+    {% endif %}
+{% endfor %}
+
+
+<div class="head">
+<h2>{{ id[0].nom }}</h2>
+<h5>Prix total de {{ id[0].nom }} : {{sumOf}}€</h5>
+</div>
+    <div class="contenu">
+        {% for manga in id %}
+          {% if manga.sideStory is null %}
+            <article>
+                <h4> <u> Tome {{manga.numeroTome }} </u> </h4>
+                <img class="image" width="180" height="250" src="/image/tome/{{manga.id}}-{{manga.numeroTome}}.jpg">
+                <form method="POST">
+                    <input type="hidden" name="id" id="id_tome" name="id_tome" value="{{manga.id_tome}}">
+                    {% if manga.lu == 1 %}
+                        <input type="image" class="read" id="Isread{{manga.id_tome}}" width="40" height="40" src="{{asset('image/check.png')}}" onclick="changeImage({{manga.id_tome}})">
+                    {% else %}
+                        <input type="image" class="read" id="Isread{{manga.id_tome}}" width="40" height="40" src="{{asset('image/nocheck.png')}}" onclick="changeImage({{manga.id_tome}})">
+                    {% endif %}
+                </form>
+                <p id="prix"> Prix : {{manga.prix}} € </p>
+                <p id="editeur"> Editeur : {{manga.editeur}} </p>
+            </article>
+          {% endif %}
+       {% endfor %}
+    </div>
+    <p></p>
+    {% if nbSide|length > 0 %}
+    <h3>Side Story</h3>
+    {% for side in nbSide %}
+        {% set sumSide = 0 %}
+        {% for manga in id %}
+            {% if manga.sideStory == side %}
+                {% set sumSide = sumSide + manga.prix %}
+            {% endif %}
+        {% endfor %}
+    <div class="head">
+        <h2>{{side}}</h2>
+        <h5>Prix total de {{side}} : {{sumSide}}€</h5>
+    </div>
+        <div class="contenu">
+            {% for manga in id %}
+            {% if manga.sideStory == side %}
+                <article>
+                    <h4> <u> {{manga.sideStory}} : Tome {{manga.numeroTome }} </u> </h4>
+                    <img class="image" width="180" height="250" src="/image/tome/{{manga.id}}-{{manga.numeroTome}}-{{manga.idSideS}}.jpg">
+                    <form method="POST">
+                    <input type="hidden" name="id" id="id_tome" name="id_tome" value="{{manga.id_tome}}">
+                    {% if manga.lu == 1 %}
+                        <input type="image" class="read" id="Isread{{manga.id_tome}}" width="40" height="40" src="{{asset('image/check.png')}}" onclick="changeImage({{manga.id_tome}})">
+                    {% else %}
+                        <input type="image" class="read" id="Isread{{manga.id_tome}}" width="40" height="40" src="{{asset('image/nocheck.png')}}" onclick="changeImage({{manga.id_tome}})">
+                    {% endif %}
+                </form>
+                <p id="prix"> Prix : {{manga.prix}} € </p>
+                <p id="editeur"> Editeur : {{manga.editeur}} </p>
+                </article>
+            {% endif %}
+            {% endfor %}
+        </div>
+    {% endfor %}
+    <p></p>
+    {% endif %}
+    <script src="{{ asset('js/manga.js') }}"></script>
+{% endblock %}

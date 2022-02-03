@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{{asset('css/style.css')}}">
+        <link rel="icon" href="image/logo.png">
+    </head>
+    <body>
+    <header>
+        <div class="nav">
+        <ul>
+            <li><a href="{{path('home')}}"><img width="50" height="50" src="/image/logo.png" class="logo"></a></li>
+            <li> <a href="{{path('to_read')}}">A lire</a> </li>
+            <li> <a href="{{path('gestion')}}">Gestion</a> </li>
+            <li> <a href="{{path('stat')}}">Statistique</a> </li>
+            <li>
+                <input type="search" placeholder="exemple : Death Note" aria-label="Search" id="search">
+                <button type="submit" onclick="search()">Search</button>
+           </li>
+        </ul>
+        </div>
+  </header>
+
+        {% block body %}{% endblock %}
+    </body>
+    <footer>
+        <div class="footer">
+            <div class="footer-left">
+                <h3>BibiManga</h3>
+                <p>
+                    <span>
+                        <a href="https://github.com/Wongt8/BibiManga">
+                            <img width="60" height="60" src="/image/github.png" alt="Github" class="social">
+                        </a>
+                    </span>
+                </p>
+            </div>
+        </div>
+</html>
+<script src="{{ asset('js/search.js') }}"></script>

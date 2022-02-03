@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}A lire{% endblock %}
+
+{% block body %}
+
+{% set tomeToRead = [] %}
+{% set lastName = "é9&+5f494f" %}
+
+{% for tome in tomes | sort((a, b) => a.nom <=> b.nom) %}
+    {% if tome.lu == 0 %}
+        {% set tomeToRead = tomeToRead|merge([tome]) %}
+    {% endif %}
+{% endfor %}
+
+{% if tomeToRead|length <= 1 %} 
+    <h2>{{tomeToRead|length}} Tome à lire</h2>
+{% else %}
+    <h2>{{tomeToRead|length}} Tomes à lire</h2>
+{% endif %}
+<div class="contenu">
+{% for manga in tomeToRead %}
+        <article>
+            {% if manga.sideStory != null %}
+                <h4> {{manga.sideStory}} : Tome {{manga.numeroTome }} </h4>
+                <img class="image" width="180" height="250" src="/image/tome/{{manga.id}}-{{manga.numeroTome}}-{{manga.idSideS}}.jpg">
+            {% else %}
+                <h4> <u> Tome {{manga.numeroTome }} </u> </h4>
+                <img class="image" width="180" height="250" src="/image/tome/{{manga.id}}-{{manga.numeroTome}}.jpg">
+            {% endif %}
+                <form method="POST">
+                    <input type="hidden" name="id" id="id_tome" name="id_tome" value="{{manga.id_tome}}">
+                    {% if manga.lu == 1 %}
+                        <input type="image" class="read" id="Isread{{manga.id_tome}}" width="40" height="40" src="{{asset('image/check.png')}}" onclick="changeImage({{manga.id_tome}})">
+                    {% else %}
+                        <input type="image" class="read" id="Isread{{manga.id_tome}}" width="40" height="40" src="{{asset('image/nocheck.png')}}" onclick="changeImage({{manga.id_tome}})">
+                    {% endif %}
+                </form>
+                <p id="editeur"> Editeur : {{manga.editeur}} </p>
+            </article>
+{% endfor %}
+</div>
+<script src="{{ asset('js/manga.js') }}"></script>
+{% endblock %}
+
