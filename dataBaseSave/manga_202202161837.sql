@@ -31,3 +31,8 @@ INSERT INTO bibimanga.manga (nom,start_date,end_date,status) VALUES
 	 ('Atlantid','2014-06-25','2015-08-25','Completed'),
 	 ('To Your Eternity ','2016-11-09',NULL,'Not finished'),
 	 ('Je suis un assassin','2018-07-10',NULL,'Not finished');
+INSERT INTO bibimanga.manga (nom,start_date,end_date,status) VALUES
+	 ('Fire Force','2015-09-23',NULL,'Not finished'),
+	 ('Food Wars','2012-11-26','2019-06-17','Not finished'),
+	 ('Oshi no Ko','2020-08-23',NULL,'Not finished'),
+	 ('Toilet-Bound Hanako-kun','2014-06-18',NULL,'Not finished');
