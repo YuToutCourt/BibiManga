@@ -23,7 +23,6 @@ class ToReadController extends AbstractController
     public function index(string $tome = "default", Request $request): Response
     {
 
-        
         if($request->getMethod("POST")){
             $data = $request->request->all();
             if(!empty($data)){
@@ -33,10 +32,7 @@ class ToReadController extends AbstractController
                 $isRead = $tome->getLu() == 0 ? 1 : 0;
                 $this->tomeRepository->updateTomeById($id_tome,$isRead);
             }
-
         }
-
-
 
         $tome = $this->tomeRepository->findAllDb();
         return $this->render('to_read/lecture.html.twig', [

@@ -5,19 +5,32 @@
 {% block body %}
 
 {% set tomeToRead = [] %}
-{% set lastName = "é9&+5f494f" %}
+{% set all_manga_name = [] %}
 
 {% for tome in tomes | sort((a, b) => a.nom <=> b.nom) %}
+
     {% if tome.lu == 0 %}
         {% set tomeToRead = tomeToRead|merge([tome]) %}
+
+        {% if tome.nom not in all_manga_name %}
+            {% set all_manga_name = all_manga_name|merge([tome.nom]) %}
+        {% endif %}
     {% endif %}
+
 {% endfor %}
 
-{% if tomeToRead|length <= 1 %} 
-    <h2>{{tomeToRead|length}} Tome à lire</h2>
-{% else %}
-    <h2>{{tomeToRead|length}} Tomes à lire</h2>
-{% endif %}
+
+<div class="head">
+
+    {% if tomeToRead|length <= 1 %} 
+        <h2>{{tomeToRead|length}} Tome à lire</h2>
+    {% else %}
+        <h2>{{tomeToRead|length}} Tomes à lire</h2>
+    {% endif %}
+
+    <button id="random_manga" type="submit" onclick="random_manga({{all_manga_name|json_encode}})">Random Manga</button>
+</div>
+
 <div class="contenu">
 {% for manga in tomeToRead %}
         <article>
@@ -40,6 +53,5 @@
             </article>
 {% endfor %}
 </div>
-<script src="{{ asset('js/manga.js') }}"></script>
 {% endblock %}
 

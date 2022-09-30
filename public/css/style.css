@@ -135,3 +135,18 @@ article > img {
 #id_manga {
     margin : -15px;
 }
+
+
+#random_manga  {
+    height : 40%;
+    line-height: 2.5;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    background-color: rgb(61, 180, 242);
+}
+
+#random_manga:hover {
+    background-color: rgb(47, 131, 177);
+}
