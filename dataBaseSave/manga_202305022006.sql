@@ -40,4 +40,8 @@ INSERT INTO bibimanga.manga (nom,start_date,end_date,status) VALUES
 	 ('Violence Action','2016-04-25',NULL,'Not finished'),
 	 ('Colocataires à leur manière','2015-06-05',NULL,'Not finished'),
 	 ('Otaku Otaku','2014-04-17','2021-07-16','Not finished'),
-	 ('Moi, quand je me reincarne en slime','2015-03-26',NULL,'Not finished');
+	 ('Moi, quand je me reincarne en slime','2015-03-26',NULL,'Not finished'),
+	 ('Time paradox ghost writer','2020-05-18','2020-08-13','Completed');
+INSERT INTO bibimanga.manga (nom,start_date,end_date,status) VALUES
+	 ('The Eminence in Shadow','2018-12-26',NULL,'Not finished'),
+	 ('Hunter x Hunter','1998-03-03',NULL,'Not finished');

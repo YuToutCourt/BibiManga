@@ -343,7 +343,7 @@ INSERT INTO bibimanga.tome (id_manga,numero_tome,prix,editeur,side_story,id_side
 	 (39,1,8.2,'Pika',NULL,NULL,1),
 	 (40,1,7.0,'Nobi Nobi',NULL,NULL,1),
 	 (20,5,6.99,'Panini Manga',NULL,NULL,1),
-	 (13,8,7.65,'Kurokawa','Year One',1,0),
+	 (13,8,7.65,'Kurokawa','Year One',1,1),
 	 (41,1,7.55,'Kana',NULL,NULL,1),
 	 (41,2,7.55,'Kana',NULL,NULL,1),
 	 (41,3,7.55,'Kana',NULL,NULL,1),
@@ -365,12 +365,67 @@ INSERT INTO bibimanga.tome (id_manga,numero_tome,prix,editeur,side_story,id_side
 	 (42,4,7.65,'Kurokawa',NULL,NULL,1),
 	 (42,5,7.65,'Kurokawa',NULL,NULL,1),
 	 (28,11,6.95,'Pika',NULL,NULL,1),
-	 (36,4,7.65,'Kurokawa',NULL,NULL,0),
-	 (4,20,6.9,'Glénat',NULL,NULL,0),
+	 (36,4,7.65,'Kurokawa',NULL,NULL,1),
+	 (4,20,6.9,'Glénat',NULL,NULL,1),
 	 (28,12,6.95,'Pika',NULL,NULL,1),
 	 (28,13,6.95,'Pika',NULL,NULL,1),
 	 (28,14,6.95,'Pika',NULL,NULL,1),
 	 (28,15,6.95,'Pika',NULL,NULL,1),
 	 (28,16,6.95,'Pika',NULL,NULL,1);
 INSERT INTO bibimanga.tome (id_manga,numero_tome,prix,editeur,side_story,id_side_s,lu) VALUES
-	 (28,17,6.95,'Pika',NULL,NULL,1);
+	 (28,17,6.95,'Pika',NULL,NULL,1),
+	 (6,22,6.9,'Glénat',NULL,NULL,1),
+	 (13,12,7.65,'Kurokawa',NULL,NULL,1),
+	 (14,10,8.99,'Ototo',NULL,NULL,1),
+	 (11,34,6.6,'Kioon',NULL,NULL,1),
+	 (36,5,7.65,'Kurokawa',NULL,NULL,1),
+	 (41,4,7.55,'Kana',NULL,NULL,1),
+	 (4,21,6.9,'Glénat',NULL,NULL,1),
+	 (39,3,8.2,'Pika',NULL,NULL,1),
+	 (43,1,6.99,'Crunchyroll',NULL,NULL,1);
+INSERT INTO bibimanga.tome (id_manga,numero_tome,prix,editeur,side_story,id_side_s,lu) VALUES
+	 (40,2,7.2,'Nobi Nobi',NULL,NULL,1),
+	 (40,3,7.2,'Nobi Nobi',NULL,NULL,1),
+	 (40,4,7.2,'Nobi Nobi',NULL,NULL,1),
+	 (8,17,7.5,'Doki Doki',NULL,NULL,1),
+	 (12,10,6.9,'Kurokawa',NULL,NULL,1),
+	 (43,2,6.99,'Crunchyroll',NULL,NULL,1),
+	 (28,18,6.95,'Pika',NULL,NULL,1),
+	 (15,25,10.9,'Kurokawa',NULL,NULL,1),
+	 (24,2,7.5,'Doki Doki',NULL,NULL,1),
+	 (4,22,6.99,'Glénat',NULL,NULL,1);
+INSERT INTO bibimanga.tome (id_manga,numero_tome,prix,editeur,side_story,id_side_s,lu) VALUES
+	 (44,1,7.5,'Doki Doki',NULL,NULL,1),
+	 (44,2,7.5,'Doki Doki',NULL,NULL,1),
+	 (44,3,7.5,'Doki Doki',NULL,NULL,1),
+	 (44,4,7.5,'Doki Doki',NULL,NULL,1),
+	 (44,5,7.5,'Doki Doki',NULL,NULL,1),
+	 (45,1,6.95,'Kana',NULL,NULL,1),
+	 (45,2,6.95,'Kana',NULL,NULL,1),
+	 (6,23,6.99,'Glénat',NULL,NULL,1),
+	 (44,6,7.5,'Doki Doki',NULL,NULL,1),
+	 (44,7,7.5,'Doki Doki',NULL,NULL,1);
+INSERT INTO bibimanga.tome (id_manga,numero_tome,prix,editeur,side_story,id_side_s,lu) VALUES
+	 (31,4,7.5,'Doki Doki',NULL,NULL,1),
+	 (36,6,7.95,'Kurokawa',NULL,NULL,1),
+	 (24,3,7.5,'Doki Doki',NULL,NULL,1),
+	 (24,4,7.5,'Doki Doki',NULL,NULL,1),
+	 (40,5,7.2,'Nobi Nobi',NULL,NULL,1),
+	 (10,25,7.95,'Kioon',NULL,NULL,1),
+	 (6,1,6.99,'Glénat','REBOOT BYAKUYA',1,1),
+	 (13,9,7.95,'Kurokawa','Year One',1,1),
+	 (15,26,7.2,'Kurokawa',NULL,NULL,1),
+	 (39,4,8.2,'Pika',NULL,NULL,1);
+INSERT INTO bibimanga.tome (id_manga,numero_tome,prix,editeur,side_story,id_side_s,lu) VALUES
+	 (4,23,6.99,'Glénat',NULL,NULL,1),
+	 (11,35,6.95,'Kioon',NULL,NULL,1),
+	 (17,6,6.99,'Kaze',NULL,NULL,1),
+	 (6,24,6.99,'Glénat',NULL,NULL,0),
+	 (13,13,7.95,'Kurokawa',NULL,NULL,0),
+	 (17,7,6.99,'Kaze',NULL,NULL,0),
+	 (24,5,7.5,'Doki Doki',NULL,NULL,0),
+	 (24,6,7.5,'Doki Doki',NULL,NULL,0),
+	 (44,8,7.5,'Doki Doki',NULL,NULL,0),
+	 (4,24,6.99,'Glénat',NULL,NULL,0);
+INSERT INTO bibimanga.tome (id_manga,numero_tome,prix,editeur,side_story,id_side_s,lu) VALUES
+	 (24,7,7.5,'Doki Doki',NULL,NULL,0);
