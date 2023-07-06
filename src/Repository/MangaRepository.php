@@ -26,7 +26,7 @@ class MangaRepository extends ServiceEntityRepository
         $conn = DriverManager::getConnection(array(
             'dbname' => 'BibiManga',
             'user' => 'root',
-            'password' => '',
+            'password' => '1234',
             'host' => 'localhost',
             'driver' => 'pdo_mysql',
         ));
